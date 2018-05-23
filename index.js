@@ -6,13 +6,12 @@
     var file = fs.readFileSync('./events.json');
     var obj = JSON.parse(file);
 
-    
+
     //app.get('/', (req, res) => res.send('home'))
     app.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     })
     app.get('/api/events', (req, res) => {
-        console.log(req.query.aqm)
         //res.send(obj.filter(o => o.aqm.r3000["$numberInt"] > 70))
         res.send(obj)
     })

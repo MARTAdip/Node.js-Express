@@ -12,12 +12,9 @@
 <body>
     <div class="container">
         <h1>Express.js/Node.js App</h1>
-            <p>hello people!!!</p>
-            <i class="em em-chipmunk"></i>
+            
+            
             <i class="em em-cactus"></i>
-            <i class="em em-banana"></i>
-            <i class="em em-dromedary_camel"></i>
-            <i class="em em-crystal_ball"></i>
             <i class="em em-dragon"></i>
         <br> <br>
                 <div id="result"></div>
@@ -29,8 +26,10 @@
             .then(resp => resp.json())
             .then(resp => {
             resp.map(e => {
-                let html = document.createElement("table")
+                let html = document.createElement("ul")
+                html.classList.add("alert", "alert-success", "text-center", "w-50")
                 html.innerHTML = e._id["$oid"]
+                
                 div.appendChild(html)
             })
             document.getElementById('result').innerHTML = div.innerHTML; 

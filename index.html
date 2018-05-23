@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Express.js/Node.js App</h1>
+            <p>hello people!!!</p>
+            <i class="em em-chipmunk"></i>
+            <i class="em em-cactus"></i>
+            <i class="em em-banana"></i>
+            <i class="em em-dromedary_camel"></i>
+            <i class="em em-crystal_ball"></i>
+            <i class="em em-dragon"></i>
+        <br> <br>
+                <div id="result"></div>
+        
+    
+        <script type="text/javascript">
+            let div = document.createElement("div")
+            fetch("http://localhost:5000/events")
+            .then(resp => resp.json())
+            .then(resp => {
+            resp.map(e => {
+                let html = document.createElement("table")
+                html.innerHTML = e._id["$oid"]
+                div.appendChild(html)
+            })
+            document.getElementById('result').innerHTML = div.innerHTML; 
+        })
+        </script>
+    </div> 
+</body>
+</html>
